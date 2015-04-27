@@ -38,7 +38,10 @@ Chaos monkey can also be used to check if the backup servers are working and the
 
 ![image3](/img/backup.png)
 
-The load balancer forwards the request to the application server, but if the error is received, it redirects the request and forwards it to the next server in the list.
+
+#### Redirecting request on receiving error
+
+The load balancer forwards the request to one of the application servers, but if the error is received, it redirects the request and forwards it to the next server in the list.
 
 ```sh
  request(options, function(req,response,error)
