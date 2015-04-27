@@ -9,8 +9,8 @@ var counter = 0;
 var instanceId = 'i-8b032fa4';
 var aws = require('aws-sdk');
 // configure AWS security tokens
-aws.config.update({accessKeyId:'AKIAJSNBZWZQ2AGNLS3Q', 
-secretAccessKey:'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',
+aws.config.update({accessKeyId:'ACCESS_KEY_ID_VALUE', 
+secretAccessKey:'SECRET_ACCESS_KEY_VALUE',
 region: 'us-east-1'});
 var ec2 = new aws.EC2();
 
