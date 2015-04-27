@@ -12,12 +12,12 @@ To implement chaos monkey, we have made use of npm aws-sdk package. It provides 
 Twice random numbers are generated. First - to select number of instances to stop. Second - to select the instance to stop.
 
 ```sh
-var number = Math.floor(random(1, instances.length-1));                      // random number of instances to shut down
+var number = Math.floor(random(1, instances.length-1));           // random number of instances to shut down
 console.log("Shutting down "+number+ " instances - Chaos Monkey");
 
 for( i =0;i<number;i++)
 {
-  var position = Math.floor(random(0, instances.length-1));               // random instance 
+  var position = Math.floor(random(0, instances.length-1));       // random instance 
   stopInstance(instances[position]);
   console.log(instances[position]);
 }
@@ -38,18 +38,18 @@ The load balancer forwards the request to the application server, but if the err
 
 ```sh
  request(options, function(req,response,error)
-				{
-					if(error!=null)
-					{
-								console.log("Success");
-								instances.push(TARGET);						// Add the server back to last position in the list
-					}
-					else
-					{
-								console.log("Redirecting...");
-								res.redirect('http://localhost:3000')         // Redirect back to proxy to be handles by next server.
-					}
-				}).pipe(res);
+{
+	if(error!=null)
+	{
+	console.log("Success");
+	instances.push(TARGET);			       // Add the server back to last position in the list
+	}
+	else
+	{
+	console.log("Redirecting...");
+	res.redirect('http://localhost:3000')         // Redirect back to proxy to be handles by next server.
+	}
+}).pipe(res);
 ```
 
 ![image4](/img/redirect.png)
@@ -91,9 +91,14 @@ function statusVal()
 The Doctor node executes and have a heartbeat monitoring each of the instance every 2 seconds. It displays the result on the index.html file.
 
 The output is color coded as followed -
+
 1. Cool (BLUE) - not monitored/ connected.
+
 2. Ok (Light Blue) - working fine.
+
 3. Alert (Orange) - Threshold crossed.
+
 4. Terminated (Red) - Instance terminated.
+
 
 ![image5](/img/doctor.jpg)
