@@ -9,7 +9,7 @@ Chaos Monkey is a service which randomly terminates one or more instances in the
 
 To implement chaos monkey, we have made use of npm aws-sdk package. It provides methods to shut down, terminate, list instances, etc. 
 
-Twice random numbers are generated. First - to select number of instances to stop. Second - to select the instance to stop.
+To select and terminate instances at ranodm, random numbers are generated twice in our implementation. First - to select number of instances to stop. Second - to select the instance to stop.
 
 ```sh
 var number = Math.floor(random(1, instances.length-1));           // random number of instances to shut down
@@ -25,9 +25,13 @@ for( i =0;i<number;i++)
 
 The method `ec2.stopInstances({ InstanceIds: [instanceId] }` is used to stop the instance.
 
-![image1](/img/chaos2.JPG)
+![image1.1](/img/c1.png)
 
-![image2](/img/chaosmonkey.jpg)
+![image1.2](/img/chaos2.JPG)
+
+![image1.3](/img/c3.png)
+
+![image1.4](/img/c4.png)
 
 #### Chaos Monkey to test back up
 Chaos monkey can also be used to check if the backup servers are working and they come up correctly when needed. To demonstrate this, we have added a list of backup servers. A heartbeat checks for number of application servers available and if this value crosses a certain threshold, it alerts the user and adds the backup servers to the lists.
