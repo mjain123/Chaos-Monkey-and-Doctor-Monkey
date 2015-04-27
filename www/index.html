@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-debug.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.6/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.js"></script>
+    <script type="text/javascript" src="statusModel1.js"></script>
+    <style type="text/css" >
+    .foo {   
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.2);
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.6/css/jquery.dataTables.css">
+  </head>
+  <body>
+
+    <table data-bind='visible: clients().length > 0' id="statusTable"  class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr >
+                <th>Name</th>
+                <th>CPU (x100)</th>
+                <th>Memory %</th>
+                <th>Status Code</th>
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: clients'>
+            <tr>
+              <td data-bind='text: name' align="center"></td>
+              <td data-bind='text: cpu' align="center"></td>
+              <td data-bind='text: memoryLoad' align="center"></td>
+              <td data-bind='text: statusCode' align="center" class="status"></td>
+
+            </tr>
+        </tbody>
+    </table>
+  </body>
+</html>
