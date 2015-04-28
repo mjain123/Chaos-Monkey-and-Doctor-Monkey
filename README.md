@@ -54,7 +54,7 @@ The load balancer forwards the request to one of the application servers, but if
 	else
 	{
 	console.log("Redirecting...");
-	res.redirect('http://localhost:3000')         // Redirect back to proxy to be handles by next server.
+	res.redirect('http://localhost:3000')         // Redirect back to proxy to be handled by next server.
 	}
 }).pipe(res);
 ```
